@@ -1,3 +1,0 @@
-[2018-Oct-14 00:32:29:029] [INFO] [main] [com.kdm.library.LibraryApplication] [Starting LibraryApplication on kasun-desktop with PID 4252 (/home/kasun/Projects/Library/target/classes started by kasun in /home/kasun/Projects/Library)]
-[2018-Oct-14 00:32:29:029] [INFO] [main] [com.kdm.library.LibraryApplication] [No active profile set, falling back to default profiles: default]
-[2018-Oct-14 00:32:29:029] [INFO] [main] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] [Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6dc17b83: startup date [Sun Oct 14 00:32:29 IST 2018]; root of context hierarchy]
