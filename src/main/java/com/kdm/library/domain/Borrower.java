@@ -9,21 +9,18 @@ public class Borrower {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "borrower_id")
     private int id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "age")
-    private int age;
-    @Column(name = "city")
-    private String city;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
 
     public Borrower() {
     }
 
-    public Borrower(int id, String name, int age, String city) {
+    public Borrower(int id, String firstName, String lastName) {
         this.id = id;
-        this.name = name;
-        this.age = age;
-        this.city = city;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -34,27 +31,19 @@ public class Borrower {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public int getAge() {
-        return age;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

@@ -21,9 +21,8 @@
     <thead>
     <tr>
         <th>Borrower id</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>City</th>
+        <th>First name</th>
+        <th>Last name</th>
     </tr>
     </thead>
 
@@ -31,9 +30,8 @@
     <c:forEach items="${borrowers}" var="borrower">
         <tr>
             <td>${borrower.id}</td>
-            <td>${borrower.name}</td>
-            <td>${borrower.age}</td>
-            <td>${borrower.city}</td>
+            <td>${borrower.firstName}</td>
+            <td>${borrower.lastName}</td>
         </tr>
     </c:forEach>
     </tbody>
@@ -51,15 +49,11 @@
                     <div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" name="borrowerName">
+                            <input type="text" class="form-control" title="borrowerFirstName">
                         </div>
                         <div class="form-group">
                             <label>Age</label>
-                            <input type="text" class="form-control" name="borrowerAge">
-                        </div>
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" class="form-control" name="borrowerCity">
+                            <input type="text" class="form-control" title="borrowerLastName">
                         </div>
                     </div>
                 </form>

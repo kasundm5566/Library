@@ -24,9 +24,8 @@ public class BorrowerController {
     @ResponseBody
     public int addBorrower(HttpServletRequest request) {
         Borrower borrower = new Borrower();
-        borrower.setName(request.getParameter("borrowerName"));
-        borrower.setAge(Integer.parseInt(request.getParameter("borrowerAge")));
-        borrower.setCity(request.getParameter("borrowerCity"));
+        borrower.setFirstName(request.getParameter("borrowerFirstName"));
+        borrower.setLastName(request.getParameter("borrowerLastName"));
         borrowerRepository.save(borrower);
         return 1;
     }

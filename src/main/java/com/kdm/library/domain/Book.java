@@ -9,12 +9,10 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private int id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
     @Column(name = "author")
     private String author;
-    @Column(name = "year")
-    private int year;
     @ManyToOne
     @JoinColumn(name = "borrower_id")
     private Borrower borrower;
@@ -26,10 +24,9 @@ public class Book {
     public Book() {
     }
 
-    public Book(String name, String author, int year, Borrower borrower, String borrowedDate, String returnDate) {
-        this.name = name;
+    public Book(String title, String author, Borrower borrower, String borrowedDate, String returnDate) {
+        this.title = title;
         this.author = author;
-        this.year = year;
         this.borrower = borrower;
         this.borrowedDate = borrowedDate;
         this.returnDate = returnDate;
@@ -43,12 +40,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
@@ -57,14 +54,6 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public Borrower getBorrower() {

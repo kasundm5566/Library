@@ -29,16 +29,16 @@
             <form id="add-book-form">
                 <div>
                     <div class="form-group">
-                        <label>Book name</label>
-                        <input type="text" class="form-control" name="bookName">
+                        <label>Book title</label>
+                        <input type="text" class="form-control" title="bookName">
                     </div>
                     <div class="form-group">
                         <label>Author</label>
-                        <input type="text" class="form-control" name="bookAuthor">
+                        <input type="text" class="form-control" title="bookAuthor">
                     </div>
                     <div class="form-group">
                         <label>Year</label>
-                        <input type="text" class="form-control" name="bookYear">
+                        <input type="text" class="form-control" title="bookYear">
                     </div>
                     <div>
                         <input type="submit" value="Submit">
@@ -70,7 +70,7 @@
             <h3>Search/borrow book</h3>
             <p>Search/borrow book section</p>
             <form class="search-book-form" action="/action_page.php" style="max-width:300px">
-                <input type="text" placeholder="Search.." name="search">
+                <input type="text" placeholder="Search.." title="search">
                 <button type="submit">Search</button>
             </form>
         </div>

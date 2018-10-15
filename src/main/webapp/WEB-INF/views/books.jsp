@@ -21,10 +21,10 @@
 <form id="search-book-form" style="max-width:350px" action="/book/search">
     <c:choose>
         <c:when test="${empty searchKey}">
-            <input type="text" placeholder="Search.." name="searchName">
+            <input type="text" placeholder="Search.." title="searchName">
         </c:when>
         <c:otherwise>
-            <input type="text" value="${searchKey}" name="searchName">
+            <input type="text" value="${searchKey}" title="searchName">
         </c:otherwise>
     </c:choose>
     <button>Search</button>
@@ -34,9 +34,8 @@
     <thead>
     <tr>
         <th>Book id</th>
-        <th>Book name</th>
+        <th>Book title</th>
         <th>Book author</th>
-        <th>Year</th>
         <th>Borrowed by</th>
         <th>Borrowed date</th>
         <th>Return date</th>
@@ -48,22 +47,21 @@
     <c:forEach items="${books}" var="book">
         <tr>
             <td>${book.id}</td>
-            <td>${book.name}</td>
+            <td>${book.title}</td>
             <td>${book.author}</td>
-            <td>${book.year}</td>
             <td>
                 <c:choose>
-                    <c:when test="${empty book.borrower.name}">
+                    <c:when test="${empty book.borrower.firstName}">
                         -
                     </c:when>
                     <c:otherwise>
-                        ${book.borrower.name}
+                        ${book.borrower.firstName}
                     </c:otherwise>
                 </c:choose>
             </td>
             <td>
                 <c:choose>
-                    <c:when test="${empty book.borrower.name}">
+                    <c:when test="${empty book.borrower.firstName}">
                         -
                     </c:when>
                     <c:otherwise>
@@ -73,7 +71,7 @@
             </td>
             <td>
                 <c:choose>
-                    <c:when test="${empty book.borrower.name}">
+                    <c:when test="${empty book.borrower.firstName}">
                         -
                     </c:when>
                     <c:otherwise>
@@ -83,7 +81,7 @@
             </td>
             <td>
                 <c:choose>
-                    <c:when test="${empty book.borrower.name}">
+                    <c:when test="${empty book.borrower.firstName}">
                         <input type="button" value="Borrow">
                     </c:when>
                     <c:otherwise>
@@ -107,16 +105,12 @@
                 <form id="add-book-form">
                     <div>
                         <div class="form-group">
-                            <label>Book name</label>
-                            <input type="text" class="form-control" name="bookName">
+                            <label>Title</label>
+                            <input type="text" class="form-control" title="bookTitle">
                         </div>
                         <div class="form-group">
                             <label>Author</label>
-                            <input type="text" class="form-control" name="bookAuthor">
-                        </div>
-                        <div class="form-group">
-                            <label>Year</label>
-                            <input type="text" class="form-control" name="bookYear">
+                            <input type="text" class="form-control" title="bookAuthor">
                         </div>
                     </div>
                 </form>

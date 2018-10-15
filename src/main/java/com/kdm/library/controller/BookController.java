@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,9 +26,8 @@ public class BookController {
     @ResponseBody
     public int addBook(HttpServletRequest request) {
         Book book = new Book();
-        book.setName(request.getParameter("bookName"));
+        book.setTitle(request.getParameter("bookTitle"));
         book.setAuthor(request.getParameter("bookAuthor"));
-        book.setYear(Integer.parseInt(request.getParameter("bookYear")));
         bookRepository.save(book);
         return 1;
     }
