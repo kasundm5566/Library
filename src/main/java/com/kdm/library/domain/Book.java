@@ -1,28 +1,40 @@
 package com.kdm.library.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "book")
 public class Book {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_id")
+    private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "author")
     private String author;
+    @Column(name = "year")
     private int year;
-    private boolean isBorrowed;
+    @ManyToOne
+    @JoinColumn(name = "borrower_id")
+    private Borrower borrower;
 
     public Book() {
     }
 
-    public Book(String id, String name, String author, int year, boolean isBorrowed) {
+    public Book(int id, String name, String author, int year, Borrower borrower) {
         this.id = id;
         this.name = name;
         this.author = author;
         this.year = year;
-        this.isBorrowed = isBorrowed;
+        this.borrower = borrower;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,11 +62,11 @@ public class Book {
         this.year = year;
     }
 
-    public boolean isBorrowed() {
-        return isBorrowed;
+    public Borrower getBorrower() {
+        return borrower;
     }
 
-    public void setBorrowed(boolean borrowed) {
-        isBorrowed = borrowed;
+    public void setBorrower(Borrower borrower) {
+        this.borrower = borrower;
     }
 }

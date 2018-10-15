@@ -1,26 +1,36 @@
 package com.kdm.library.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "borrower")
 public class Borrower {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "borrower_id")
+    private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "age")
     private int age;
+    @Column(name = "city")
     private String city;
 
     public Borrower() {
     }
 
-    public Borrower(String id, String name, int age, String city) {
+    public Borrower(int id, String name, int age, String city) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.city = city;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
