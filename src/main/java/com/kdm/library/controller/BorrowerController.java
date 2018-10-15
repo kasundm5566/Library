@@ -22,12 +22,12 @@ public class BorrowerController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public String addBorrower(HttpServletRequest request) {
+    public int addBorrower(HttpServletRequest request) {
         Borrower borrower = new Borrower();
         borrower.setName(request.getParameter("borrowerName"));
         borrower.setAge(Integer.parseInt(request.getParameter("borrowerAge")));
         borrower.setCity(request.getParameter("borrowerCity"));
         borrowerRepository.save(borrower);
-        return "success";
+        return 1;
     }
 }

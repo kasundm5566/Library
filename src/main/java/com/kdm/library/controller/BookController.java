@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by kasun on 10/15/18.
@@ -22,12 +23,20 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public String addBook(HttpServletRequest request) {
+    public int addBook(HttpServletRequest request) {
         Book book = new Book();
         book.setName(request.getParameter("bookName"));
         book.setAuthor(request.getParameter("bookAuthor"));
         book.setYear(Integer.parseInt(request.getParameter("bookYear")));
         bookRepository.save(book);
+        return 1;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public String getBooks(HttpServletRequest request) {
+
+        List<Book> books = bookRepository.findAll();
         return "success";
     }
 }

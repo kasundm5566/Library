@@ -10,28 +10,68 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/js/script.js"></script>
     <link rel="stylesheet" href="/resources/css/style.css"/>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
 <h3>Add Book</h3>
 <p>Add book section.</p>
-<form id="add-book-form">
-    <div>
-        <div class="form-group">
-            <label>Book name</label>
-            <input type="text" class="form-control" name="bookName">
-        </div>
-        <div class="form-group">
-            <label>Author</label>
-            <input type="text" class="form-control" name="bookAuthor">
-        </div>
-        <div class="form-group">
-            <label>Year</label>
-            <input type="text" class="form-control" name="bookYear">
-        </div>
-        <div>
-            <input type="submit" value="Submit">
+<input type="button" value="Add book" id="btnAddBook">
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Book id</th>
+        <th>Book name</th>
+        <th>Book Author</th>
+        <th>Year</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <c:forEach items="${books}" var="book">
+        <tr>
+            <td>${book.id}</td>
+            <td>${book.name}</td>
+            <td>${book.author}</td>
+            <td>${book.year}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<div id="add-book-popup" class="modal fade">
+    <div class="modal-dialog" style="width: 70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <%--<img class="icons" src="<c:url value="/resources/images/icons/item_list.ico"/>">--%>
+                <h4 class="modal-title header-panel">Add book</h4>
+            </div>
+            <div class="modal-body">
+                <form id="add-book-form">
+                    <div>
+                        <div class="form-group">
+                            <label>Book name</label>
+                            <input type="text" class="form-control" name="bookName">
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input type="text" class="form-control" name="bookAuthor">
+                        </div>
+                        <div class="form-group">
+                            <label>Year</label>
+                            <input type="text" class="form-control" name="bookYear">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
+                <button class="btn btn-success btn-sm" onclick="submitAddBookForm();">Add</button>
+            </div>
         </div>
     </div>
-</form>
+</div>
+
 </body>

@@ -1,33 +1,45 @@
-/**
- * Created by dinesh on 5/15/17.
- */
+function submitAddBookForm() {
+    $.ajax({
+        type: "POST",
+        url: "/book",
+        data: $("#add-book-form").serialize(),
+        success: function (result) {
+            if(result === 1){
+                $("#add-book-popup").modal('hide');
+                location.reload(true);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
+function submitAddBorrowerForm() {
+    $.ajax({
+        type: "POST",
+        url: "/borrower",
+        data: $("#add-borrower-form").serialize(),
+        success: function (result) {
+            if(result === 1){
+                $("#add-book-popup").modal('hide');
+                location.reload(true);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
 $(document).ready(function () {
     // alert("JQuery script executed...");
-    $("#add-book-form").submit(function () {
-        $.ajax({
-            type: "POST",
-            url: "/book",
-            data: $(this).serialize(),
-            success: function (result) {
-                alert(result);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(errorThrown);
-            }
-        });
+
+    $("#btnAddBook").click(function () {
+        $("#add-book-popup").modal('show');
     });
 
-    $("#add-borrower-form").submit(function () {
-        $.ajax({
-            type: "POST",
-            url: "/borrower",
-            data: $(this).serialize(),
-            success: function (result) {
-                alert(result);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(errorThrown);
-            }
-        });
+    $("#btnAddBorrower").click(function () {
+        $("#add-borrower-popup").modal('show');
     });
 });
