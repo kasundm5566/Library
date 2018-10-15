@@ -21,10 +21,10 @@
 <form id="search-book-form" style="max-width:350px" action="/book/search">
     <c:choose>
         <c:when test="${empty searchKey}">
-            <input type="text" placeholder="Search.." title="searchName">
+            <input type="text" placeholder="Search.." name="searchKey">
         </c:when>
         <c:otherwise>
-            <input type="text" value="${searchKey}" title="searchName">
+            <input type="text" value="${searchKey}" name="searchKey">
         </c:otherwise>
     </c:choose>
     <button>Search</button>
@@ -106,11 +106,11 @@
                     <div>
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" class="form-control" title="bookTitle">
+                            <input type="text" class="form-control" name="bookTitle">
                         </div>
                         <div class="form-group">
                             <label>Author</label>
-                            <input type="text" class="form-control" title="bookAuthor">
+                            <input type="text" class="form-control" name="bookAuthor">
                         </div>
                     </div>
                 </form>

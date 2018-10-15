@@ -49,11 +49,11 @@
                     <div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" title="borrowerFirstName">
+                            <input type="text" class="form-control" name="borrowerFirstName">
                         </div>
                         <div class="form-group">
                             <label>Age</label>
-                            <input type="text" class="form-control" title="borrowerLastName">
+                            <input type="text" class="form-control" name="borrowerLastName">
                         </div>
                     </div>
                 </form>

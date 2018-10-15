@@ -35,10 +35,10 @@ public class BookController {
     @RequestMapping(method = RequestMethod.GET, value = "/search")
     public ModelAndView searchBooks(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("/views/books");
-        String searchKey = request.getParameter("searchName");
+        String searchKey = request.getParameter("searchKey");
         List<Book> books;
         if (searchKey.equals("")) {
-            books = bookRepository.findAll();
+            books = bookRepository.findBooksWithBorrower();
         } else {
             books = bookRepository.searchBooksByName(searchKey);
         }
