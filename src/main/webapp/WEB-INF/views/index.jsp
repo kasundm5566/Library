@@ -30,15 +30,18 @@
                 <div>
                     <div class="form-group">
                         <label>Book name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="bookName">
                     </div>
                     <div class="form-group">
                         <label>Author</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="bookAuthor">
                     </div>
                     <div class="form-group">
                         <label>Year</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="bookYear">
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit">
                     </div>
                 </div>
             </form>

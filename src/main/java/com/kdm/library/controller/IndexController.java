@@ -1,4 +1,4 @@
-package com.kdm.library.controllers;
+package com.kdm.library.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,18 @@ public class IndexController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView indexPage() {
         ModelAndView modelAndView = new ModelAndView("/views/index");
-//        modelAndView.addObject("name", "user");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/add-book", method = RequestMethod.GET)
+    public ModelAndView addBookPage() {
+        ModelAndView modelAndView = new ModelAndView("/views/add-book");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/add-borrower", method = RequestMethod.GET)
+    public ModelAndView addBorrowerPage() {
+        ModelAndView modelAndView = new ModelAndView("/views/add-borrower");
         return modelAndView;
     }
 }
