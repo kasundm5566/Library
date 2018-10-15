@@ -4,9 +4,9 @@ function submitAddBookForm() {
         url: "/book",
         data: $("#add-book-form").serialize(),
         success: function (result) {
-            if(result === 1){
+            if (result === 1) {
                 $("#add-book-popup").modal('hide');
-                location.href="/books"
+                location.href = "/books"
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -21,7 +21,7 @@ function submitAddBorrowerForm() {
         url: "/borrower",
         data: $("#add-borrower-form").serialize(),
         success: function (result) {
-            if(result === 1){
+            if (result === 1) {
                 $("#add-book-popup").modal('hide');
                 location.reload(true);
             }
@@ -40,5 +40,11 @@ $(document).ready(function () {
 
     $("#btnAddBorrower").click(function () {
         $("#add-borrower-popup").modal('show');
+    });
+
+    $(".btnBorrowReturn").click(function () {
+        var selectedBookId = $(this).closest('tr').find('td.idCell').text();
+        var option = $(this).attr("value");
+        $("#borrow-book-popup").modal('show');
     });
 });
