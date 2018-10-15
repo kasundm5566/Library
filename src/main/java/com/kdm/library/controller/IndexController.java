@@ -31,17 +31,17 @@ public class IndexController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/add-book", method = RequestMethod.GET)
+    @RequestMapping(value = "/books", method = RequestMethod.GET)
     public ModelAndView addBookPage() {
-        ModelAndView modelAndView = new ModelAndView("/views/add-book");
+        ModelAndView modelAndView = new ModelAndView("/views/books");
         List<Book> books = bookRepository.findAll();
         modelAndView.addObject("books", books);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/add-borrower", method = RequestMethod.GET)
+    @RequestMapping(value = "/borrowers", method = RequestMethod.GET)
     public ModelAndView addBorrowerPage() {
-        ModelAndView modelAndView = new ModelAndView("/views/add-borrower");
+        ModelAndView modelAndView = new ModelAndView("/views/borrowers");
         List<Borrower> borrowers = borrowerRepository.findAll();
         modelAndView.addObject("borrowers", borrowers);
         return modelAndView;

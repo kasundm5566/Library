@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>My Library | Add Book</title>
+    <title>My Library | Books</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -18,6 +18,17 @@
 <h3>Add Book</h3>
 <p>Add book section.</p>
 <input type="button" value="Add book" id="btnAddBook">
+<form id="search-book-form" style="max-width:350px" action="/book/search">
+    <c:choose>
+        <c:when test="${empty searchKey}">
+            <input type="text" placeholder="Search.." name="searchName">
+        </c:when>
+        <c:otherwise>
+            <input type="text" value="${searchKey}" name="searchName">
+        </c:otherwise>
+    </c:choose>
+    <button>Search</button>
+</form>
 
 <table class="table table-bordered">
     <thead>

@@ -6,7 +6,7 @@ function submitAddBookForm() {
         success: function (result) {
             if(result === 1){
                 $("#add-book-popup").modal('hide');
-                location.reload(true);
+                location.href="/books"
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -33,7 +33,6 @@ function submitAddBorrowerForm() {
 }
 
 $(document).ready(function () {
-    // alert("JQuery script executed...");
 
     $("#btnAddBook").click(function () {
         $("#add-book-popup").modal('show');

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,11 +34,18 @@ public class BookController {
         return 1;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public String getBooks(HttpServletRequest request) {
-
-        List<Book> books = bookRepository.findAll();
-        return "success";
+    @RequestMapping(method = RequestMethod.GET, value = "/search")
+    public ModelAndView searchBooks(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView("/views/books");
+        String searchKey = request.getParameter("searchName");
+        List<Book> books;
+        if (searchKey.equals("")) {
+            books = bookRepository.findAll();
+        } else {
+            books = bookRepository.searchBooksByName(searchKey);
+        }
+        modelAndView.addObject("books", books);
+        modelAndView.addObject("searchKey", searchKey);
+        return modelAndView;
     }
 }
