@@ -34,7 +34,7 @@ public class IndexController {
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public ModelAndView addBookPage() {
         ModelAndView modelAndView = new ModelAndView("/views/books");
-        List<Book> books = bookRepository.findAll();
+        List<Book> books = bookRepository.findBooksWithBorrower();
         modelAndView.addObject("books", books);
         return modelAndView;
     }

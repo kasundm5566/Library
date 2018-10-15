@@ -18,16 +18,21 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "borrower_id")
     private Borrower borrower;
+    @Column(name = "borrowed_date")
+    private String borrowedDate;
+    @Column(name = "return_date")
+    private String returnDate;
 
     public Book() {
     }
 
-    public Book(int id, String name, String author, int year, Borrower borrower) {
-        this.id = id;
+    public Book(String name, String author, int year, Borrower borrower, String borrowedDate, String returnDate) {
         this.name = name;
         this.author = author;
         this.year = year;
         this.borrower = borrower;
+        this.borrowedDate = borrowedDate;
+        this.returnDate = returnDate;
     }
 
     public int getId() {
@@ -68,5 +73,21 @@ public class Book {
 
     public void setBorrower(Borrower borrower) {
         this.borrower = borrower;
+    }
+
+    public String getBorrowedDate() {
+        return borrowedDate;
+    }
+
+    public void setBorrowedDate(String borrowedDate) {
+        this.borrowedDate = borrowedDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
     }
 }

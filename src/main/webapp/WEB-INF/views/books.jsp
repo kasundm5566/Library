@@ -35,8 +35,12 @@
     <tr>
         <th>Book id</th>
         <th>Book name</th>
-        <th>Book Author</th>
+        <th>Book author</th>
         <th>Year</th>
+        <th>Borrowed by</th>
+        <th>Borrowed date</th>
+        <th>Return date</th>
+        <th>Action</th>
     </tr>
     </thead>
 
@@ -47,6 +51,46 @@
             <td>${book.name}</td>
             <td>${book.author}</td>
             <td>${book.year}</td>
+            <td>
+                <c:choose>
+                    <c:when test="${empty book.borrower.name}">
+                        -
+                    </c:when>
+                    <c:otherwise>
+                        ${book.borrower.name}
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${empty book.borrower.name}">
+                        -
+                    </c:when>
+                    <c:otherwise>
+                        ${book.borrowedDate}
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${empty book.borrower.name}">
+                        -
+                    </c:when>
+                    <c:otherwise>
+                        ${book.returnDate}
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${empty book.borrower.name}">
+                        <input type="button" value="Borrow">
+                    </c:when>
+                    <c:otherwise>
+                        <input type="button" value="Return">
+                    </c:otherwise>
+                </c:choose>
+            </td>
         </tr>
     </c:forEach>
     </tbody>

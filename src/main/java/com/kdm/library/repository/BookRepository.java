@@ -13,6 +13,9 @@ import java.util.List;
 @Component
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
+    @Query(value = "SELECT b.book_id, b.author, b.name, b.year, br.name, b.borrower_id, b.borrowed_date, b.return_date FROM book b LEFT JOIN borrower br ON  b.borrower_id = br.borrower_id", nativeQuery = true)
+    List<Book> findBooksWithBorrower();
+
     @Query(value = "SELECT * FROM book WHERE name= ?1", nativeQuery = true)
     List<Book> searchBooksByName(String name);
 }
