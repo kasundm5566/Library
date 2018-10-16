@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,8 +58,9 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/borrow")
-    public ModelAndView borrowBook(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("/views/books");
+    @ResponseBody
+    public int borrowBook(HttpServletRequest request) {
+        final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String bookId = request.getParameter("bookId");
         String borrowerId = request.getParameter("borrowerId");
         Optional<Book> book = bookRepository.findById(Integer.parseInt(bookId));
@@ -64,10 +69,30 @@ public class BookController {
         if (book.isPresent() && borrower.isPresent()) {
             updatedBook = book.get();
             updatedBook.setBorrower(borrower.get());
-            updatedBook.setBorrowedDate("2018-10-16");
-            updatedBook.setReturnDate("2018-10-23");
+            Date currentDate = new Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(currentDate);
+            updatedBook.setBorrowedDate(dateFormat.format(currentDate));
+            c.add(Calendar.DATE, 7);
+            updatedBook.setReturnDate(dateFormat.format(c.getTime()));
             bookRepository.save(updatedBook);
+            return 1;
         }
-        return modelAndView;
+        return 0;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/return")
+    @ResponseBody
+    public int returnBook(HttpServletRequest request) {
+        String bookId = request.getParameter("bookId");
+        Optional<Book> book = bookRepository.findById(Integer.parseInt(bookId));
+        Book updatedBook;
+        if (book.isPresent()) {
+            updatedBook = book.get();
+            updatedBook.setBorrower(new Borrower());
+            bookRepository.save(updatedBook);
+            return 1;
+        }
+        return 0;
     }
 }

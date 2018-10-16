@@ -137,7 +137,7 @@
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm" onclick="submitBorrowBookForm($('#headerBookId').text(),$(this).closest('div.modal-body').find('#cmbBorrowerId').val());">Borrow</button>
+                <button class="btn btn-success btn-sm" onclick="borrowBook($('#headerBookId').text(),$('#cmbBorrowerId').val());">Borrow</button>
             </div>
         </div>
     </div>
@@ -148,13 +148,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title header-panel">Return book</h4>
+                <h5 id="headerReturnBookId"></h5>
             </div>
             <div class="modal-body">
                 Confirm return?
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button id="brnConfirmReturn" class="btn btn-success btn-sm">Yes</button>
+                <button id="brnConfirmReturn" class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());">Yes</button>
             </div>
         </div>
     </div>

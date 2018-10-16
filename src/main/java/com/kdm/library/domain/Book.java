@@ -13,7 +13,7 @@ public class Book {
     private String title;
     @Column(name = "author")
     private String author;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "borrower_id")
     private Borrower borrower;
     @Column(name = "borrowed_date")

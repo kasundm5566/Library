@@ -32,22 +32,43 @@ function submitAddBorrowerForm() {
     });
 }
 
-function submitBorrowBookForm(bookId, borrowerId) {
-    alert(bookId + " " + borrowerId);
-    /*$.ajax({
-     type: "POST",
-     url: "/book/borrow",
-     data: $("#borrow-book-form").serialize(),
-     success: function (result) {
-     if (result === 1) {
-     $("#add-book-popup").modal('hide');
-     location.reload(true);
-     }
-     },
-     error: function (jqXHR, textStatus, errorThrown) {
-     alert(errorThrown);
-     }
-     });*/
+function borrowBook(bookId, borrowerId) {
+    $.ajax({
+        type: "POST",
+        url: "/book/borrow",
+        data: {
+            "bookId": bookId,
+            "borrowerId": borrowerId
+        },
+        success: function (result) {
+            if (result === 1) {
+                $("#borrow-book-popup").modal('hide');
+                location.reload(true);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
+function returnBook(bookId){
+    $.ajax({
+        type: "POST",
+        url: "/book/return",
+        data: {
+            "bookId": bookId
+        },
+        success: function (result) {
+            if (result === 1) {
+                $("#return-book-popup").modal('hide');
+                location.reload(true);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
 }
 
 $(document).ready(function () {
@@ -68,6 +89,7 @@ $(document).ready(function () {
             $("#headerBookId").text(selectedBookId);
         } else if (option === "Return") {
             $("#return-book-popup").modal('show');
+            $("#headerReturnBookId").text(selectedBookId);
         }
     });
 });
