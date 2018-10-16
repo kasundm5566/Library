@@ -3,3 +3,4 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/js/script.js"></script>
 <link rel="stylesheet" href="/resources/css/style.css"/>
+<%@ taglib prefix="fmt" uri="http://www.springframework.org/tags" %>

@@ -10,15 +10,14 @@
 </head>
 
 <body>
-<h3>Add Borrower</h3>
-<p>Add borrower section.</p>
+<h3><fmt:message code="borrowers.management.header"/></h3>
 <input type="button" value="Add borrower" id="btnAddBorrower">
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th>Borrower id</th>
-        <th>First name</th>
-        <th>Last name</th>
+        <th><fmt:message code="borrowers.management.table.header.borrower.id"/></th>
+        <th><fmt:message code="borrowers.management.table.header.first.name"/></th>
+        <th><fmt:message code="borrowers.management.table.header.last.name"/></th>
     </tr>
     </thead>
 
@@ -37,25 +36,25 @@
     <div class="modal-dialog" style="width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel">Add book</h4>
+                <h4 class="modal-title header-panel"><fmt:message code="borrowers.management.add.borrower.modal.header"/></h4>
             </div>
             <div class="modal-body">
                 <form id="add-borrower-form">
                     <div>
                         <div class="form-group">
-                            <label>Name</label>
+                            <label><fmt:message code="borrowers.management.add.borrower.form.first.name.label"/></label>
                             <input type="text" class="form-control" name="borrowerFirstName">
                         </div>
                         <div class="form-group">
-                            <label>Age</label>
+                            <label><fmt:message code="borrowers.management.add.borrower.form.last.name.label"/></label>
                             <input type="text" class="form-control" name="borrowerLastName">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm" onclick="submitAddBorrowerForm();">Add</button>
+                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message code="borrowers.management.add.borrower.form.close.button.text"/></a>
+                <button class="btn btn-success btn-sm" onclick="submitAddBorrowerForm();"><fmt:message code="borrowers.management.add.borrower.form.add.button.text"/></button>
             </div>
         </div>
     </div>

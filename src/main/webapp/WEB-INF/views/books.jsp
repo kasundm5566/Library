@@ -11,8 +11,7 @@
 </head>
 
 <body>
-<h3>Add Book</h3>
-<p>Add book section.</p>
+<h3><fmt:message code="books.management.header"/></h3>
 <input type="button" value="Add book" id="btnAddBook">
 <form id="search-book-form" style="max-width:350px" action="/book/search">
     <c:choose>
@@ -23,19 +22,19 @@
             <input type="text" value="${searchKey}" name="searchKey">
         </c:otherwise>
     </c:choose>
-    <button>Search</button>
+    <button><fmt:message code="books.management.search.button.text"/></button>
 </form>
 
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th>Book id</th>
-        <th>Book title</th>
-        <th>Book author</th>
-        <th>Borrowed by</th>
-        <th>Borrowed date</th>
-        <th>Return date</th>
-        <th>Action</th>
+        <th><fmt:message code="books.management.table.header.book.id"/></th>
+        <th><fmt:message code="books.management.table.header.title"/></th>
+        <th><fmt:message code="books.management.table.header.author"/></th>
+        <th><fmt:message code="books.management.table.header.borrowed.by"/></th>
+        <th><fmt:message code="books.management.table.header.borrowed.date"/></th>
+        <th><fmt:message code="books.management.table.header.return.date"/></th>
+        <th><fmt:message code="books.management.table.header.action"/></th>
     </tr>
     </thead>
 
@@ -94,25 +93,27 @@
     <div class="modal-dialog" style="width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel">Add book</h4>
+                <h4 class="modal-title header-panel"><fmt:message code="books.management.add.book.modal.header"/></h4>
             </div>
             <div class="modal-body">
                 <form id="add-book-form">
                     <div>
                         <div class="form-group">
-                            <label>Title</label>
+                            <label><fmt:message code="books.management.add.book.form.title.label"/></label>
                             <input type="text" class="form-control" name="bookTitle">
                         </div>
                         <div class="form-group">
-                            <label>Author</label>
+                            <label><fmt:message code="books.management.add.book.form.author.label"/></label>
                             <input type="text" class="form-control" name="bookAuthor">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm" onclick="submitAddBookForm();">Add</button>
+                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
+                        code="books.management.add.book.form.close.button.text"/></a>
+                <button class="btn btn-success btn-sm" onclick="submitAddBookForm();"><fmt:message
+                        code="books.management.add.book.form.add.button.text"/></button>
             </div>
         </div>
     </div>
@@ -122,12 +123,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel">Borrow book</h4>
+                <h4 class="modal-title header-panel"><fmt:message
+                        code="books.management.borrow.book.modal.header"/></h4>
                 <h5 id="headerBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Borrower</label>
+                    <label><fmt:message code="books.management.borrow.book.form.borrower.label"/></label>
                     <select id="cmbBorrowerId">
                         <c:forEach items="${borrowers}" var="borrower">
                             <option value="${borrower.id}">${borrower.firstName}${" "}${borrower.lastName}</option>
@@ -136,8 +138,11 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm" onclick="borrowBook($('#headerBookId').text(),$('#cmbBorrowerId').val());">Borrow</button>
+                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
+                        code="books.management.borrow.book.form.close.button.text"/></a>
+                <button class="btn btn-success btn-sm"
+                        onclick="borrowBook($('#headerBookId').text(),$('#cmbBorrowerId').val());"><fmt:message
+                        code="books.management.borrow.book.form.borrow.button.text"/></button>
             </div>
         </div>
     </div>
@@ -147,15 +152,19 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel">Return book</h4>
+                <h4 class="modal-title header-panel"><fmt:message
+                        code="books.management.return.book.modal.header"/></h4>
                 <h5 id="headerReturnBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
-                Confirm return?
+                <fmt:message code="books.management.return.book.confirmation"/>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button id="brnConfirmReturn" class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());">Yes</button>
+                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
+                        code="books.management.return.book.form.close.button.text"/></a>
+                <button id="brnConfirmReturn" class="btn btn-success btn-sm"
+                        onclick="returnBook($('#headerReturnBookId').text());"><fmt:message
+                        code="books.management.return.book.form.return.button.text"/></button>
             </div>
         </div>
     </div>
