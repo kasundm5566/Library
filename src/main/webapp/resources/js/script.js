@@ -32,6 +32,24 @@ function submitAddBorrowerForm() {
     });
 }
 
+function submitBorrowBookForm(bookId, borrowerId) {
+    alert(bookId + " " + borrowerId);
+    /*$.ajax({
+     type: "POST",
+     url: "/book/borrow",
+     data: $("#borrow-book-form").serialize(),
+     success: function (result) {
+     if (result === 1) {
+     $("#add-book-popup").modal('hide');
+     location.reload(true);
+     }
+     },
+     error: function (jqXHR, textStatus, errorThrown) {
+     alert(errorThrown);
+     }
+     });*/
+}
+
 $(document).ready(function () {
 
     $("#btnAddBook").click(function () {
@@ -47,6 +65,7 @@ $(document).ready(function () {
         var option = $.trim($(this).attr("value"));
         if (option === "Borrow") {
             $("#borrow-book-popup").modal('show');
+            $("#headerBookId").text(selectedBookId);
         } else if (option === "Return") {
             $("#return-book-popup").modal('show');
         }

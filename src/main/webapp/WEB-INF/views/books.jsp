@@ -123,24 +123,21 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title header-panel">Borrow book</h4>
+                <h5 id="headerBookId"></h5>
             </div>
             <div class="modal-body">
-                <form id="borrow-book-form">
-                    <div>
-                        <div class="form-group">
-                            <label>Borrower</label>
-                            <select>
-                                <c:forEach items="${borrowers}" var="borrower">
-                                    <option value="${borrower.id}">${borrower.firstName}${" "}${borrower.lastName}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
-                </form>
+                <div class="form-group">
+                    <label>Borrower</label>
+                    <select id="cmbBorrowerId">
+                        <c:forEach items="${borrowers}" var="borrower">
+                            <option value="${borrower.id}">${borrower.firstName}${" "}${borrower.lastName}</option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm" onclick="submitAddBookForm();">Borrow</button>
+                <button class="btn btn-success btn-sm" onclick="submitBorrowBookForm($('#headerBookId').text(),$(this).closest('div.modal-body').find('#cmbBorrowerId').val());">Borrow</button>
             </div>
         </div>
     </div>
@@ -157,7 +154,7 @@
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm">Yes</button>
+                <button id="brnConfirmReturn" class="btn btn-success btn-sm">Yes</button>
             </div>
         </div>
     </div>
