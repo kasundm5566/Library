@@ -48,4 +48,12 @@ public class IndexController {
         modelAndView.addObject("borrowers", borrowers);
         return modelAndView;
     }
+
+    @RequestMapping(value = "/overdue", method = RequestMethod.GET)
+    public ModelAndView overdueBooks() {
+        ModelAndView modelAndView = new ModelAndView("/views/overdue");
+        List<Book> books = bookRepository.findOverdueBooks();
+        modelAndView.addObject("books", books);
+        return modelAndView;
+    }
 }
