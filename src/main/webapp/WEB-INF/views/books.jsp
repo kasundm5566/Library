@@ -123,7 +123,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title header-panel">Borrow book</h4>
-                <h5 id="headerBookId"></h5>
+                <h5 id="headerBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
                 <div class="form-group">
@@ -148,7 +148,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title header-panel">Return book</h4>
-                <h5 id="headerReturnBookId"></h5>
+                <h5 id="headerReturnBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
                 Confirm return?
