@@ -98,7 +98,6 @@
     <div class="modal-dialog" style="width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <%--<img class="icons" src="<c:url value="/resources/images/icons/item_list.ico"/>">--%>
                 <h4 class="modal-title header-panel">Add book</h4>
             </div>
             <div class="modal-body">
@@ -124,37 +123,45 @@
 </div>
 
 <div id="borrow-book-popup" class="modal fade">
-    <div class="modal-dialog" style="width: 70%;">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <%--<img class="icons" src="<c:url value="/resources/images/icons/item_list.ico"/>">--%>
-                <h4 class="modal-title header-panel">Add book</h4>
+                <h4 class="modal-title header-panel">Borrow book</h4>
             </div>
             <div class="modal-body">
                 <form id="borrow-book-form">
                     <div>
                         <div class="form-group">
                             <label>Borrower</label>
-                            <script>
-                                $.ajax({
-                                    type: "GET",
-                                    url: "/borrower",
-                                    success: function (result) {
-                                        var obj = JSON.parse(result);
-                                        alert(obj);
-                                    },
-                                    error: function (jqXHR, textStatus, errorThrown) {
-                                        alert(errorThrown);
-                                    }
-                                });
-                            </script>
+                            <select>
+                                <c:forEach items="${borrowers}" var="borrower">
+                                    <option value="${borrower.id}">${borrower.firstName}${" "}${borrower.lastName}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
-                <button class="btn btn-success btn-sm" onclick="submitAddBookForm();">Add</button>
+                <button class="btn btn-success btn-sm" onclick="submitAddBookForm();">Borrow</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="return-book-popup" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title header-panel">Return book</h4>
+            </div>
+            <div class="modal-body">
+                Confirm return?
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default btn-sm" data-dismiss="modal">Close</a>
+                <button class="btn btn-success btn-sm">Yes</button>
             </div>
         </div>
     </div>

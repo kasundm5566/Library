@@ -41,7 +41,6 @@
     <div class="modal-dialog" style="width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <%--<img class="icons" src="<c:url value="/resources/images/icons/item_list.ico"/>">--%>
                 <h4 class="modal-title header-panel">Add book</h4>
             </div>
             <div class="modal-body">

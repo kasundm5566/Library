@@ -35,7 +35,9 @@ public class IndexController {
     public ModelAndView addBookPage() {
         ModelAndView modelAndView = new ModelAndView("/views/books");
         List<Book> books = bookRepository.findBooksWithBorrower();
+        List<Borrower> borrowers = borrowerRepository.findAll();
         modelAndView.addObject("books", books);
+        modelAndView.addObject("borrowers", borrowers);
         return modelAndView;
     }
 

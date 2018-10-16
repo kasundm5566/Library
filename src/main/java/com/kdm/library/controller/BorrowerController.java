@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by kasun on 10/15/18.
@@ -31,16 +28,5 @@ public class BorrowerController {
         borrower.setLastName(request.getParameter("borrowerLastName"));
         borrowerRepository.save(borrower);
         return 1;
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public Map<Integer, String> findBorrowerNamesWithIds() {
-        List<Borrower> borrowerList = borrowerRepository.findAll();
-        Map<Integer, String> borrowersMap = new HashMap<>();
-        borrowerList.forEach(borrower -> {
-            borrowersMap.put(borrower.getId(), (borrower.getFirstName() + " " + borrower.getLastName()));
-        });
-        return borrowersMap;
     }
 }

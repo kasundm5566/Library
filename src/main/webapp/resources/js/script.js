@@ -44,7 +44,11 @@ $(document).ready(function () {
 
     $(".btnBorrowReturn").click(function () {
         var selectedBookId = $(this).closest('tr').find('td.idCell').text();
-        var option = $(this).attr("value");
-        $("#borrow-book-popup").modal('show');
+        var option = $.trim($(this).attr("value"));
+        if (option === "Borrow") {
+            $("#borrow-book-popup").modal('show');
+        } else if (option === "Return") {
+            $("#return-book-popup").modal('show');
+        }
     });
 });
