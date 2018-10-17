@@ -19,11 +19,14 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
+    private final BorrowerRepository borrowerRepository;
 
     @Autowired
-    private BorrowerRepository borrowerRepository;
+    public IndexController(BookRepository bookRepository, BorrowerRepository borrowerRepository) {
+        this.bookRepository = bookRepository;
+        this.borrowerRepository = borrowerRepository;
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView indexPage() {

@@ -26,11 +26,14 @@ import java.util.Optional;
 @RequestMapping(value = "/book")
 public class BookController {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
+    private final BorrowerRepository borrowerRepository;
 
     @Autowired
-    BorrowerRepository borrowerRepository;
+    public BookController(BookRepository bookRepository, BorrowerRepository borrowerRepository) {
+        this.bookRepository = bookRepository;
+        this.borrowerRepository = borrowerRepository;
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
