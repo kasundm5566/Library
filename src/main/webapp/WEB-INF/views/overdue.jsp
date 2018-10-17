@@ -88,7 +88,7 @@
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message code="overdue.books.management.return.book.form.close.button.text"/></a>
-                <button id="brnConfirmReturn" class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());"><fmt:message code="overdue.books.management.return.book.form.return.button.text"/></button>
+                <button class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());"><fmt:message code="overdue.books.management.return.book.form.return.button.text"/></button>
             </div>
         </div>
     </div>

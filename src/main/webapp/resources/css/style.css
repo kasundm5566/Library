@@ -1,4 +1,4 @@
-body{
+body {
     font-weight: bold;
 }
 
@@ -35,4 +35,8 @@ form.search-book-form::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.validationErrorLabel {
+    color: red;
 }

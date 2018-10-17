@@ -43,14 +43,15 @@
                     <div>
                         <div class="form-group">
                             <label><fmt:message code="borrowers.management.add.borrower.form.first.name.label"/></label>
-                            <input type="text" class="form-control" name="borrowerFirstName">
+                            <input id="txtBorrowerFirstName" type="text" class="form-control" name="borrowerFirstName">
                         </div>
                         <div class="form-group">
                             <label><fmt:message code="borrowers.management.add.borrower.form.last.name.label"/></label>
-                            <input type="text" class="form-control" name="borrowerLastName">
+                            <input id="txtBorrowerLastName" type="text" class="form-control" name="borrowerLastName">
                         </div>
                     </div>
                 </form>
+                <label class="validationErrorLabel"><fmt:message code="borrowers.management.add.borrower.form.validation.error.message"/> </label>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message code="borrowers.management.add.borrower.form.close.button.text"/></a>

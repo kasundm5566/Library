@@ -100,14 +100,15 @@
                     <div>
                         <div class="form-group">
                             <label><fmt:message code="books.management.add.book.form.title.label"/></label>
-                            <input type="text" class="form-control" name="bookTitle">
+                            <input id="txtBookTitle" type="text" class="form-control" name="bookTitle">
                         </div>
                         <div class="form-group">
                             <label><fmt:message code="books.management.add.book.form.author.label"/></label>
-                            <input type="text" class="form-control" name="bookAuthor">
+                            <input id="txtBookAuthor" type="text" class="form-control" name="bookAuthor">
                         </div>
                     </div>
                 </form>
+                <label class="validationErrorLabel"><fmt:message code="books.management.add.book.form.validation.error.message"/> </label>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
@@ -162,7 +163,7 @@
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
                         code="books.management.return.book.form.close.button.text"/></a>
-                <button id="brnConfirmReturn" class="btn btn-success btn-sm"
+                <button class="btn btn-success btn-sm"
                         onclick="returnBook($('#headerReturnBookId').text());"><fmt:message
                         code="books.management.return.book.form.return.button.text"/></button>
             </div>
