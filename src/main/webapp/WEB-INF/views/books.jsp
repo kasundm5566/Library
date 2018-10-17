@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>My Library | Books</title>
     <%@include file="includes/include.jsp" %>
+    <title><fmt:message key="books.management.page.title" bundle="${lang}"/></title>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
-<h3><fmt:message code="books.management.header"/></h3>
+<h3><fmt:message key="books.management.header" bundle="${lang}"/></h3>
 <input type="button" value="Add book" id="btnAddBook">
 <form id="search-book-form" style="max-width:350px" action="/book/search">
     <c:choose>
@@ -22,19 +20,19 @@
             <input type="text" value="${searchKey}" name="searchKey">
         </c:otherwise>
     </c:choose>
-    <button><fmt:message code="books.management.search.button.text"/></button>
+    <button><fmt:message key="books.management.search.button.text" bundle="${lang}"/></button>
 </form>
 
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th><fmt:message code="books.management.table.header.book.id"/></th>
-        <th><fmt:message code="books.management.table.header.title"/></th>
-        <th><fmt:message code="books.management.table.header.author"/></th>
-        <th><fmt:message code="books.management.table.header.borrowed.by"/></th>
-        <th><fmt:message code="books.management.table.header.borrowed.date"/></th>
-        <th><fmt:message code="books.management.table.header.return.date"/></th>
-        <th><fmt:message code="books.management.table.header.action"/></th>
+        <th><fmt:message key="books.management.table.header.book.id" bundle="${lang}"/></th>
+        <th><fmt:message key="books.management.table.header.title" bundle="${lang}"/></th>
+        <th><fmt:message key="books.management.table.header.author" bundle="${lang}"/></th>
+        <th><fmt:message key="books.management.table.header.borrowed.by" bundle="${lang}"/></th>
+        <th><fmt:message key="books.management.table.header.borrowed.date" bundle="${lang}"/></th>
+        <th><fmt:message key="books.management.table.header.return.date" bundle="${lang}"/></th>
+        <th><fmt:message key="books.management.table.header.action" bundle="${lang}"/></th>
     </tr>
     </thead>
 
@@ -93,28 +91,28 @@
     <div class="modal-dialog" style="width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel"><fmt:message code="books.management.add.book.modal.header"/></h4>
+                <h4 class="modal-title header-panel"><fmt:message key="books.management.add.book.modal.header" bundle="${lang}"/></h4>
             </div>
             <div class="modal-body">
                 <form id="add-book-form">
                     <div>
                         <div class="form-group">
-                            <label><fmt:message code="books.management.add.book.form.title.label"/></label>
+                            <label><fmt:message key="books.management.add.book.form.title.label" bundle="${lang}"/></label>
                             <input id="txtBookTitle" type="text" class="form-control" name="bookTitle">
                         </div>
                         <div class="form-group">
-                            <label><fmt:message code="books.management.add.book.form.author.label"/></label>
+                            <label><fmt:message key="books.management.add.book.form.author.label"/></label>
                             <input id="txtBookAuthor" type="text" class="form-control" name="bookAuthor">
                         </div>
                     </div>
                 </form>
-                <label class="validationErrorLabel"><fmt:message code="books.management.add.book.form.validation.error.message"/> </label>
+                <label class="validationErrorLabel"><fmt:message key="books.management.add.book.form.validation.error.message" bundle="${lang}"/> </label>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
-                        code="books.management.add.book.form.close.button.text"/></a>
+                        key="books.management.add.book.form.close.button.text" bundle="${lang}"/></a>
                 <button class="btn btn-success btn-sm" onclick="submitAddBookForm();"><fmt:message
-                        code="books.management.add.book.form.add.button.text"/></button>
+                        key="books.management.add.book.form.add.button.text" bundle="${lang}"/></button>
             </div>
         </div>
     </div>
@@ -125,12 +123,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title header-panel"><fmt:message
-                        code="books.management.borrow.book.modal.header"/></h4>
+                        key="books.management.borrow.book.modal.header" bundle="${lang}"/></h4>
                 <h5 id="headerBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label><fmt:message code="books.management.borrow.book.form.borrower.label"/></label>
+                    <label><fmt:message key="books.management.borrow.book.form.borrower.label" bundle="${lang}"/></label>
                     <select id="cmbBorrowerId">
                         <c:forEach items="${borrowers}" var="borrower">
                             <option value="${borrower.id}">${borrower.firstName}${" "}${borrower.lastName}</option>
@@ -140,10 +138,10 @@
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
-                        code="books.management.borrow.book.form.close.button.text"/></a>
+                        key="books.management.borrow.book.form.close.button.text" bundle="${lang}"/></a>
                 <button class="btn btn-success btn-sm"
                         onclick="borrowBook($('#headerBookId').text(),$('#cmbBorrowerId').val());"><fmt:message
-                        code="books.management.borrow.book.form.borrow.button.text"/></button>
+                        key="books.management.borrow.book.form.borrow.button.text" bundle="${lang}"/></button>
             </div>
         </div>
     </div>
@@ -154,18 +152,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title header-panel"><fmt:message
-                        code="books.management.return.book.modal.header"/></h4>
+                        key="books.management.return.book.modal.header" bundle="${lang}"/></h4>
                 <h5 id="headerReturnBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
-                <fmt:message code="books.management.return.book.confirmation"/>
+                <fmt:message key="books.management.return.book.confirmation" bundle="${lang}"/>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
-                        code="books.management.return.book.form.close.button.text"/></a>
+                        key="books.management.return.book.form.close.button.text" bundle="${lang}"/></a>
                 <button class="btn btn-success btn-sm"
                         onclick="returnBook($('#headerReturnBookId').text());"><fmt:message
-                        code="books.management.return.book.form.return.button.text"/></button>
+                        key="books.management.return.book.form.return.button.text" bundle="${lang}"/></button>
             </div>
         </div>
     </div>

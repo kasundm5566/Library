@@ -1,27 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>My Library | Overdue Books</title>
     <%@include file="includes/include.jsp" %>
+    <title><fmt:message key="overdue.books.management.page.title" bundle="${lang}"/></title>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
-<h3><fmt:message code="overdue.books.management.header"/></h3>
+<h3><fmt:message key="overdue.books.management.header" bundle="${lang}"/></h3>
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th><fmt:message code="overdue.books.management.table.header.book.id"/></th>
-        <th><fmt:message code="overdue.books.management.table.header.title"/></th>
-        <th><fmt:message code="overdue.books.management.table.header.author"/></th>
-        <th><fmt:message code="overdue.books.management.table.header.borrowed.by"/></th>
-        <th><fmt:message code="overdue.books.management.table.header.borrowed.date"/></th>
-        <th><fmt:message code="overdue.books.management.table.header.return.date"/></th>
-        <th><fmt:message code="overdue.books.management.table.header.action"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.book.id" bundle="${lang}"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.title" bundle="${lang}"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.author" bundle="${lang}"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.borrowed.by" bundle="${lang}"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.borrowed.date" bundle="${lang}"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.return.date" bundle="${lang}"/></th>
+        <th><fmt:message key="overdue.books.management.table.header.action" bundle="${lang}"/></th>
     </tr>
     </thead>
 
@@ -80,15 +78,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel"><fmt:message code="overdue.books.management.return.book.modal.header"/></h4>
+                <h4 class="modal-title header-panel"><fmt:message key="overdue.books.management.return.book.modal.header" bundle="${lang}"/></h4>
                 <h5 id="headerReturnBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
-                <fmt:message code="overdue.management.return.book.confirmation"/>
+                <fmt:message key="overdue.management.return.book.confirmation" bundle="${lang}"/>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message code="overdue.books.management.return.book.form.close.button.text"/></a>
-                <button class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());"><fmt:message code="overdue.books.management.return.book.form.return.button.text"/></button>
+                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message key="overdue.books.management.return.book.form.close.button.text" bundle="${lang}"/></a>
+                <button class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());"><fmt:message key="overdue.books.management.return.book.form.return.button.text" bundle="${lang}"/></button>
             </div>
         </div>
     </div>

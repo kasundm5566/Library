@@ -3,4 +3,8 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/js/script.js"></script>
 <link rel="stylesheet" href="/resources/css/style.css"/>
-<%@ taglib prefix="fmt" uri="http://www.springframework.org/tags" %>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setLocale value = "en"/>
+<fmt:setBundle basename = "messages" var = "lang"/>
