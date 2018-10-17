@@ -52,8 +52,10 @@ public class BookController {
         } else {
             books = bookRepository.searchBooksByName(searchKey);
         }
+        List<Borrower> borrowers = borrowerRepository.findAll();
         modelAndView.addObject("books", books);
         modelAndView.addObject("searchKey", searchKey);
+        modelAndView.addObject("borrowers", borrowers);
         return modelAndView;
     }
 

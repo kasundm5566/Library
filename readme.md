@@ -14,6 +14,7 @@ This system has used an in memory database(H2 database) to manipulate data.
 1. Goto the location of the project directory (Library).
 
 2. Run following command.
+
 `$ mvn clean install`
 
 #### Execute the program
@@ -28,6 +29,7 @@ This system has used an in memory database(H2 database) to manipulate data.
 e.g: `java -jar library-0.0.1-SNAPSHOT.jar`
 
 i.e: Please refer the following link to find more ways to build and execute Spring Boot application.
+
 https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html
 
 #### Access the program
