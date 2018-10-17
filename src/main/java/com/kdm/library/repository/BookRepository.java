@@ -19,6 +19,6 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query(value = "SELECT * FROM book WHERE title LIKE ?1%", nativeQuery = true)
     List<Book> searchBooksByName(String title);
 
-    @Query(value = "SELECT * FROM book WHERE return_date >= CURDATE()", nativeQuery = true)
+    @Query(value = "SELECT * FROM book WHERE return_date <= CURDATE()", nativeQuery = true)
     List<Book> findOverdueBooks();
 }

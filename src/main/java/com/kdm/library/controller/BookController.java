@@ -94,7 +94,7 @@ public class BookController {
         Book updatedBook;
         if (book.isPresent()) {
             updatedBook = book.get();
-            updatedBook.setBorrower(new Borrower());
+            updatedBook.setBorrower(null);
             bookRepository.save(updatedBook);
             return 1;
         }
