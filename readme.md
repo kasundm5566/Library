@@ -40,6 +40,12 @@ e.g: <fmt:setLocale value = "fr"/>
 * Java Development Kit (JDK) 1.8
 * Apache Maven 3.5
 
+#### Environment used for developments
+* OS: Ubuntu 18.04
+* IDE: IntelliJ IDEA 2018
+* Back end technologies: Java with Spring Boot, Spring Data JPA
+* Front end technologies: JSP, CSS, JQuery, Bootstrap
+
 #### Config & Build
 1. Goto the location of the project directory (Library).
 
