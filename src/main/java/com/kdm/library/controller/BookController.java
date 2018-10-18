@@ -36,7 +36,7 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView addBookPage() {
+    public ModelAndView findAllBookDetails() {
         ModelAndView modelAndView = new ModelAndView("/views/books");
         List<Book> books = bookRepository.findBooksWithBorrower();
         List<Borrower> borrowers = borrowerRepository.findAll();
@@ -114,7 +114,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/overdue", method = RequestMethod.GET)
-    public ModelAndView overdueBooks() {
+    public ModelAndView findOverdueBooks() {
         ModelAndView modelAndView = new ModelAndView("/views/overdue");
         List<Book> books = bookRepository.findOverdueBooks();
         modelAndView.addObject("books", books);
