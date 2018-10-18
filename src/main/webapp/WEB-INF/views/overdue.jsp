@@ -23,53 +23,62 @@
     </thead>
 
     <tbody>
-    <c:forEach items="${books}" var="book">
-        <tr>
-            <td class="idCell">${book.id}</td>
-            <td>${book.title}</td>
-            <td>${book.author}</td>
-            <td>
-                <c:choose>
-                    <c:when test="${empty book.borrower.firstName}">
-                        -
-                    </c:when>
-                    <c:otherwise>
-                        ${book.borrower.firstName}${" "}${book.borrower.lastName}
-                    </c:otherwise>
-                </c:choose>
-            </td>
-            <td>
-                <c:choose>
-                    <c:when test="${empty book.borrower.firstName}">
-                        -
-                    </c:when>
-                    <c:otherwise>
-                        ${book.borrowedDate}
-                    </c:otherwise>
-                </c:choose>
-            </td>
-            <td>
-                <c:choose>
-                    <c:when test="${empty book.borrower.firstName}">
-                        -
-                    </c:when>
-                    <c:otherwise>
-                        ${book.returnDate}
-                    </c:otherwise>
-                </c:choose>
-            </td>
-            <td class="tblActionCell">
-                <c:choose>
-                    <c:when test="${empty book.borrower.firstName}">
-                        <input class="btnBorrowReturn btn btn-success btn-xs" type="button" value="Borrow">
-                    </c:when>
-                    <c:otherwise>
-                        <input class="btnBorrowReturn btn btn-warning btn-xs" type="button" value="Return">
-                    </c:otherwise>
-                </c:choose>
-            </td>
-        </tr>
-    </c:forEach>
+    <c:choose>
+        <c:when test="${fn:length(books) gt 0}">
+            <c:forEach items="${books}" var="book">
+                <tr>
+                    <td class="idCell">${book.id}</td>
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${empty book.borrower.firstName}">
+                                -
+                            </c:when>
+                            <c:otherwise>
+                                ${book.borrower.firstName}${" "}${book.borrower.lastName}
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${empty book.borrower.firstName}">
+                                -
+                            </c:when>
+                            <c:otherwise>
+                                ${book.borrowedDate}
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${empty book.borrower.firstName}">
+                                -
+                            </c:when>
+                            <c:otherwise>
+                                ${book.returnDate}
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td class="tblActionCell">
+                        <c:choose>
+                            <c:when test="${empty book.borrower.firstName}">
+                                <input class="btnBorrowReturn btn btn-success btn-xs" type="button" value="Borrow">
+                            </c:when>
+                            <c:otherwise>
+                                <input class="btnBorrowReturn btn btn-warning btn-xs" type="button" value="Return">
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                </tr>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <tr>
+                <td class="noBooksCell" colspan="7"><fmt:message key="overdue.books.management.table.no.books.message" bundle="${lang}"/></td>
+            </tr>
+        </c:otherwise>
+    </c:choose>
     </tbody>
 </table>
 
@@ -77,15 +86,19 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel"><fmt:message key="overdue.books.management.return.book.modal.header" bundle="${lang}"/></h4>
+                <h4 class="modal-title header-panel"><fmt:message
+                        key="overdue.books.management.return.book.modal.header" bundle="${lang}"/></h4>
                 <h5 id="headerReturnBookId" style="display: none;"></h5>
             </div>
             <div class="modal-body">
                 <fmt:message key="overdue.management.return.book.confirmation" bundle="${lang}"/>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message key="overdue.books.management.return.book.form.close.button.text" bundle="${lang}"/></a>
-                <button class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());"><fmt:message key="overdue.books.management.return.book.form.return.button.text" bundle="${lang}"/></button>
+                <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
+                        key="overdue.books.management.return.book.form.close.button.text" bundle="${lang}"/></a>
+                <button class="btn btn-success btn-sm" onclick="returnBook($('#headerReturnBookId').text());">
+                    <fmt:message key="overdue.books.management.return.book.form.return.button.text"
+                                 bundle="${lang}"/></button>
             </div>
         </div>
     </div>
