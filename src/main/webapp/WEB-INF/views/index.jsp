@@ -14,8 +14,8 @@
             <div class="card" onclick="location.href='/book';">
                 <img src="img_avatar.png" style="width:100%">
                 <div class="container">
-                    <h4><b>Books Management</b></h4>
-                    <p>View, add, borrow or return books.</p>
+                    <h4><b><fmt:message key="index.page.books.management.card.header" bundle="${lang}"/></b></h4>
+                    <p><fmt:message key="index.page.books.management.card.description" bundle="${lang}"/></p>
                 </div>
             </div>
         </div>
@@ -23,8 +23,8 @@
             <div class="card" onclick="location.href='/borrower';">
                 <img src="img_avatar.png" style="width:100%">
                 <div class="container">
-                    <h4><b>Borrowers Management</b></h4>
-                    <p>Add borrowers.</p>
+                    <h4><b><fmt:message key="index.page.borrowers.management.card.header" bundle="${lang}"/></b></h4>
+                    <p><fmt:message key="index.page.borrowers.management.card.description" bundle="${lang}"/></p>
                 </div>
             </div>
         </div>
@@ -32,8 +32,8 @@
             <div class="card" onclick="location.href='/book/overdue';">
                 <img src="img_avatar.png" style="width:100%">
                 <div class="container">
-                    <h4><b>Overdue Books Management</b></h4>
-                    <p>View and return overdue books.</p>
+                    <h4><b><fmt:message key="index.page.overdue.books.management.card.header" bundle="${lang}"/></b></h4>
+                    <p><fmt:message key="index.page.overdue.books.management.card.description" bundle="${lang}"/></p>
                 </div>
             </div>
         </div>
