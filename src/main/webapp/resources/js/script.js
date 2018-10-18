@@ -10,7 +10,7 @@ function submitAddBookForm() {
             success: function (result) {
                 if (result === 1) {
                     $("#add-book-popup").modal('hide');
-                    location.href = "/books"
+                    location.href = "/book"
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
