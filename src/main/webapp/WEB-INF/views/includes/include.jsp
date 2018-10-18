@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="/resources/css/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <fmt:setLocale value = "en"/>
 <fmt:setBundle basename = "messages" var = "lang"/>

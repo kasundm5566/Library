@@ -4,23 +4,27 @@
 <head>
     <%@include file="includes/include.jsp" %>
     <title><fmt:message key="books.management.page.title" bundle="${lang}"/></title>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
+<%@include file="includes/top-navigation.jsp" %>
 <h3><fmt:message key="books.management.header" bundle="${lang}"/></h3>
-<input type="button" value="Add book" id="btnAddBook">
-<form id="search-book-form" style="max-width:350px" action="/book/search">
-    <c:choose>
-        <c:when test="${empty searchKey}">
-            <input type="text" placeholder="Search.." name="searchKey">
-        </c:when>
-        <c:otherwise>
-            <input type="text" value="${searchKey}" name="searchKey">
-        </c:otherwise>
-    </c:choose>
-    <button><fmt:message key="books.management.search.button.text" bundle="${lang}"/></button>
+<input class="btn btn-success btn-sm" type="button" value="Add book" id="btnAddBook">
+
+<form id="search-book-form" action="/book/search">
+    <div class="input-group">
+        <c:choose>
+            <c:when test="${empty searchKey}">
+                <input class="form-control input-sm" type="text" placeholder="Search.." name="searchKey">
+            </c:when>
+            <c:otherwise>
+                <input class="form-control input-sm" type="text" value="${searchKey}" name="searchKey">
+            </c:otherwise>
+        </c:choose>
+        <div class="input-group-btn">
+            <button class="btn btn-default btn-sm"><fmt:message key="books.management.search.button.text" bundle="${lang}"/></button>
+        </div>
+    </div>
 </form>
 
 <table class="table table-bordered">
@@ -48,7 +52,7 @@
                         -
                     </c:when>
                     <c:otherwise>
-                        ${book.borrower.firstName}
+                        ${book.borrower.firstName}${" "}${book.borrower.lastName}
                     </c:otherwise>
                 </c:choose>
             </td>
@@ -72,13 +76,13 @@
                     </c:otherwise>
                 </c:choose>
             </td>
-            <td>
+            <td class="tblActionCell">
                 <c:choose>
                     <c:when test="${empty book.borrower.firstName}">
-                        <input class="btnBorrowReturn" type="button" value="Borrow">
+                        <input class="btnBorrowReturn btn btn-success btn-xs" type="button" value="Borrow">
                     </c:when>
                     <c:otherwise>
-                        <input class="btnBorrowReturn" type="button" value="Return">
+                        <input class="btnBorrowReturn btn btn-warning btn-xs" type="button" value="Return">
                     </c:otherwise>
                 </c:choose>
             </td>
@@ -91,13 +95,15 @@
     <div class="modal-dialog" style="width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title header-panel"><fmt:message key="books.management.add.book.modal.header" bundle="${lang}"/></h4>
+                <h4 class="modal-title header-panel"><fmt:message key="books.management.add.book.modal.header"
+                                                                  bundle="${lang}"/></h4>
             </div>
             <div class="modal-body">
                 <form id="add-book-form">
                     <div>
                         <div class="form-group">
-                            <label><fmt:message key="books.management.add.book.form.title.label" bundle="${lang}"/></label>
+                            <label><fmt:message key="books.management.add.book.form.title.label"
+                                                bundle="${lang}"/></label>
                             <input id="txtBookTitle" type="text" class="form-control" name="bookTitle">
                         </div>
                         <div class="form-group">
@@ -106,7 +112,8 @@
                         </div>
                     </div>
                 </form>
-                <label class="validationErrorLabel"><fmt:message key="books.management.add.book.form.validation.error.message" bundle="${lang}"/> </label>
+                <label class="validationErrorLabel"><fmt:message
+                        key="books.management.add.book.form.validation.error.message" bundle="${lang}"/> </label>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default btn-sm" data-dismiss="modal"><fmt:message
@@ -128,8 +135,9 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label><fmt:message key="books.management.borrow.book.form.borrower.label" bundle="${lang}"/></label>
-                    <select id="cmbBorrowerId">
+                    <label><fmt:message key="books.management.borrow.book.form.borrower.label"
+                                        bundle="${lang}"/></label>
+                    <select class="form-control" id="cmbBorrowerId">
                         <c:forEach items="${borrowers}" var="borrower">
                             <option value="${borrower.id}">${borrower.firstName}${" "}${borrower.lastName}</option>
                         </c:forEach>

@@ -4,11 +4,10 @@
 <head>
     <%@include file="includes/include.jsp" %>
     <title><fmt:message key="overdue.books.management.page.title" bundle="${lang}"/></title>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
+<%@include file="includes/top-navigation.jsp" %>
 <h3><fmt:message key="overdue.books.management.header" bundle="${lang}"/></h3>
 <table class="table table-bordered">
     <thead>
@@ -35,7 +34,7 @@
                         -
                     </c:when>
                     <c:otherwise>
-                        ${book.borrower.firstName}
+                        ${book.borrower.firstName}${" "}${book.borrower.lastName}
                     </c:otherwise>
                 </c:choose>
             </td>
@@ -59,13 +58,13 @@
                     </c:otherwise>
                 </c:choose>
             </td>
-            <td>
+            <td class="tblActionCell">
                 <c:choose>
                     <c:when test="${empty book.borrower.firstName}">
-                        <input class="btnBorrowReturn" type="button" value="Borrow">
+                        <input class="btnBorrowReturn btn btn-success btn-xs" type="button" value="Borrow">
                     </c:when>
                     <c:otherwise>
-                        <input class="btnBorrowReturn" type="button" value="Return">
+                        <input class="btnBorrowReturn btn btn-warning btn-xs" type="button" value="Return">
                     </c:otherwise>
                 </c:choose>
             </td>
