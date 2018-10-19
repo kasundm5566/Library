@@ -9,6 +9,7 @@
 <body>
 <%@include file="includes/top-navigation.jsp" %>
 <h3><fmt:message key="books.management.header" bundle="${lang}"/></h3>
+<hr>
 <input class="btn btn-success btn-sm" type="button" value="Add book" id="btnAddBook">
 
 <form id="search-book-form" action="/book/search">

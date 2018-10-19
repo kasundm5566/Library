@@ -10,6 +10,7 @@
 <body>
 <%@include file="includes/top-navigation.jsp" %>
 <h3><fmt:message key="borrowers.management.header" bundle="${lang}"/></h3>
+<hr>
 <input class="btn btn-success btn-sm" type="button" value="Add borrower" id="btnAddBorrower">
 <table class="table table-bordered">
     <thead>

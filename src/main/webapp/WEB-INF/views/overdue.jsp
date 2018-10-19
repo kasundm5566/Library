@@ -9,6 +9,7 @@
 <body>
 <%@include file="includes/top-navigation.jsp" %>
 <h3><fmt:message key="overdue.books.management.header" bundle="${lang}"/></h3>
+<hr>
 <table class="table table-bordered">
     <thead>
     <tr>
