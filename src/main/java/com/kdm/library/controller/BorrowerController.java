@@ -24,7 +24,7 @@ public class BorrowerController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView addBorrowerPage() {
-        ModelAndView modelAndView = new ModelAndView("/views/borrowers");
+        ModelAndView modelAndView = new ModelAndView("/borrowers");
         List<Borrower> borrowers = borrowerRepository.findAll();
         modelAndView.addObject("borrowers", borrowers);
         return modelAndView;

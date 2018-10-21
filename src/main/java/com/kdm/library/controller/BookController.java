@@ -37,7 +37,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView findAllBookDetails() {
-        ModelAndView modelAndView = new ModelAndView("/views/books");
+        ModelAndView modelAndView = new ModelAndView("/books");
         List<Book> books = bookRepository.findBooksWithBorrower();
         List<Borrower> borrowers = borrowerRepository.findAll();
         modelAndView.addObject("books", books);
@@ -57,7 +57,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/search")
     public ModelAndView searchBooks(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("/views/books");
+        ModelAndView modelAndView = new ModelAndView("/books");
         String searchKey = request.getParameter("searchKey");
         List<Book> books;
         if (searchKey.equals("")) {
@@ -115,7 +115,7 @@ public class BookController {
 
     @RequestMapping(value = "/overdue", method = RequestMethod.GET)
     public ModelAndView findOverdueBooks() {
-        ModelAndView modelAndView = new ModelAndView("/views/overdue");
+        ModelAndView modelAndView = new ModelAndView("/overdue");
         List<Book> books = bookRepository.findOverdueBooks();
         modelAndView.addObject("books", books);
         return modelAndView;

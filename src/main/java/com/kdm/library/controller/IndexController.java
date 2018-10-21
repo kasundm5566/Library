@@ -15,7 +15,7 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView indexPage() {
-        ModelAndView modelAndView = new ModelAndView("/views/index");
+        ModelAndView modelAndView = new ModelAndView("/index");
         return modelAndView;
     }
 }
